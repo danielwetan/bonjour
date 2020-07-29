@@ -6,18 +6,26 @@ import storage from './src/redux/store';
 import {PersistGate} from 'redux-persist/integration/react';
 const {store, persistor} = storage;
 
+import Chats from './src/screens/Chats';
 import Login from './src/screens/Login';
 import Register from './src/screens/Register';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <View>
-            {/* <Text>Hello</Text> */}
-            <Register />
-          </View>
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen name="Chats" component={Chats} />
+              <Stack.Screen name="Login" component={Login} />
+              <Stack.Screen name="Profile" component={Register} />
+            </Stack.Navigator>
+          </NavigationContainer>
         </PersistGate>
       </Provider>
     </>

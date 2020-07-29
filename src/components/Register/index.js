@@ -30,8 +30,7 @@ const Register = (props) => {
     props
       .dispatch(register(data))
       .then(() => {
-        // setIsModalVisible(true);
-        console.log('register success!');
+        setIsModalVisible(true);
       })
       .catch((err) => {
         console.log(err);
@@ -105,12 +104,6 @@ const Register = (props) => {
                 Login
               </Text>
             </View>
-            {/* <Text
-            style={{
-              fontFamily: 'Quicksand-Bold',
-              fontSize: 18,
-            }}
-            >Login Success!</Text> */}
           </View>
         </Modal>
       </View>
