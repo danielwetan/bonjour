@@ -6,7 +6,7 @@ const Chats = ({navigation}) => {
   return (
     <>
       <Main nav={navigation} />
-      <BottomNav />
+      {/* <BottomNav /> */}
     </>
   );
 };

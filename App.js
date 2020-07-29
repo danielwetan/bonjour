@@ -16,17 +16,41 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
+const ChatsStack = createStackNavigator();
+const LoginStack = createStackNavigator();
+
+const ChatsStackScreen = () => {
+  return (
+    <ChatsStack.Navigator>
+      <ChatsStack.Screen name="Chats" component={Chats} />
+      <ChatsStack.Screen name="Login" component={Login} />
+    </ChatsStack.Navigator>
+  );
+};
+
+const LoginStackScreen = () => {
+  return (
+    <LoginStack.Navigator>
+      <LoginStack.Screen name="Login" component={Login} />
+      <LoginStack.Screen name="Chats" component={Chats} />
+    </LoginStack.Navigator>
+  );
+};
+
 const App = () => {
   return (
     <>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <NavigationContainer>
-            <Stack.Navigator>
-              <Stack.Screen name="Chats" component={Chats} />
-              <Stack.Screen name="Login" component={Login} />
-              <Stack.Screen name="Profile" component={Register} />
-            </Stack.Navigator>
+            {/* <Stack.Navigator>
+              <Stack.Screen name="Chats" component={ChatsStackScreen} />
+              <Stack.Screen name="Login" component={LoginStackScreen} />
+            </Stack.Navigator> */}
+            <Tab.Navigator>
+              <Tab.Screen name="Chats" component={ChatsStackScreen} />
+              <Tab.Screen name="Login" component={LoginStackScreen} />
+            </Tab.Navigator>
           </NavigationContainer>
         </PersistGate>
       </Provider>
