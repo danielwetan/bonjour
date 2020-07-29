@@ -43,10 +43,6 @@ const App = () => {
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <NavigationContainer>
-            {/* <Stack.Navigator>
-              <Stack.Screen name="Chats" component={ChatsStackScreen} />
-              <Stack.Screen name="Login" component={LoginStackScreen} />
-            </Stack.Navigator> */}
             <Tab.Navigator>
               <Tab.Screen name="Chats" component={ChatsStackScreen} />
               <Tab.Screen name="Login" component={LoginStackScreen} />
