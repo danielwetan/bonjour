@@ -7,8 +7,10 @@ import {PersistGate} from 'redux-persist/integration/react';
 const {store, persistor} = storage;
 
 import Chats from './src/screens/Chats';
+import Contacts from './src/screens/Contacts';
 import Login from './src/screens/Login';
 import Register from './src/screens/Register';
+
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -16,24 +18,30 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const ChatsStack = createStackNavigator();
-const LoginStack = createStackNavigator();
-
 const ChatsStackScreen = () => {
   return (
-    <ChatsStack.Navigator>
-      <ChatsStack.Screen name="Chats" component={Chats} />
-      <ChatsStack.Screen name="Login" component={Login} />
-    </ChatsStack.Navigator>
+    <Stack.Navigator>
+      <Stack.Screen name="Chats" component={Chats} />
+      <Stack.Screen name="Login" component={Login} />
+    </Stack.Navigator>
+  );
+};
+
+const ContactsStackScreen = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Contacts" component={Contacts} />
+      <Stack.Screen name="Login" component={Login} />
+    </Stack.Navigator>
   );
 };
 
 const LoginStackScreen = () => {
   return (
-    <LoginStack.Navigator>
-      <LoginStack.Screen name="Login" component={Login} />
-      <LoginStack.Screen name="Chats" component={Chats} />
-    </LoginStack.Navigator>
+    <Stack.Navigator>
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Chats" component={Chats} />
+    </Stack.Navigator>
   );
 };
 
@@ -45,6 +53,7 @@ const App = () => {
           <NavigationContainer>
             <Tab.Navigator>
               <Tab.Screen name="Chats" component={ChatsStackScreen} />
+              <Tab.Screen name="Contacts" component={ContactsStackScreen} />
               <Tab.Screen name="Login" component={LoginStackScreen} />
             </Tab.Navigator>
           </NavigationContainer>

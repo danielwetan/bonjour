@@ -1,0 +1,16 @@
+/* eslint-disable react-native/no-inline-styles */
+import React from 'react';
+import {Text, View} from 'react-native';
+import Search from '../Public/Search';
+import Message from './Message';
+import MessageList from './MessageList';
+const Contacts = (props) => {
+  return (
+    <>
+      <Search />
+      <MessageList />
+    </>
+  );
+};
+
+export default Contacts;

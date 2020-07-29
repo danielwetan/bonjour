@@ -10,7 +10,7 @@ const MessageList = () => {
   const getMessages = () => {
     axios({
       method: 'GET',
-      url: 'http://192.168.43.186:3000/msg/2',
+      url: 'http://192.168.43.186:3000/contact/2',
     })
       .then((res) => {
         setData(res.data.body);
@@ -31,10 +31,9 @@ const MessageList = () => {
           <Message
             key={singleData.id}
             id={singleData.id}
-            receiver_id={singleData.receiver_id}
-            sender_name={singleData.sender_name}
+            name={singleData.name}
             profile_img={singleData.profile_img}
-            message={singleData.message}
+            about={singleData.about}
           />
         );
       })}
