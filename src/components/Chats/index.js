@@ -2,13 +2,13 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import Search from '../Public/Search';
+import Message from './Message';
+import MessageList from './MessageList';
 const Chats = (props) => {
   return (
     <>
-      <View>
-        <Search />
-        <Text>Home</Text>
-      </View>
+      <Search />
+      <MessageList />
     </>
   );
 };
