@@ -6,7 +6,7 @@ import Main from '../components/Register';
 const Register = ({navigation}) => {
   return (
     <>
-      <SafeAreaView style={{backgroundColor: 'white', flex: 1}}>
+      <SafeAreaView>
         <Main nav={navigation} />
       </SafeAreaView>
     </>

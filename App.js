@@ -16,7 +16,7 @@ const App = () => {
         <PersistGate persistor={persistor}>
           <View>
             {/* <Text>Hello</Text> */}
-            <Login />
+            <Register />
           </View>
         </PersistGate>
       </Provider>

@@ -11,8 +11,7 @@ import {register} from '../../redux/actions/auth';
 import Modal from 'react-native-modal';
 
 const Register = (props) => {
-  const [username, setUsername] = useState('');
-  const [fullName, setFullName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // const [role, setRole] = useState('2');
@@ -24,16 +23,15 @@ const Register = (props) => {
 
   const userRegistration = () => {
     const data = {
-      username: username,
-      full_name: fullName,
+      name: name,
       email: email,
       password: password,
-      role: '2',
     };
     props
       .dispatch(register(data))
       .then(() => {
-        setIsModalVisible(true);
+        // setIsModalVisible(true);
+        console.log('register success!');
       })
       .catch((err) => {
         console.log(err);
@@ -43,18 +41,9 @@ const Register = (props) => {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.title}>Username</Text>
+        <Text style={styles.title}>Name</Text>
         <Input
-          onChangeText={(text) => setUsername(text)}
-          placeholder="Username"
-          inputStyle={{
-            fontFamily: 'Quicksand-Bold',
-          }}
-        />
-
-        <Text style={styles.title}>Full Name</Text>
-        <Input
-          onChangeText={(text) => setFullName(text)}
+          onChangeText={(text) => setName(text)}
           placeholder="John Doe"
           inputStyle={{
             fontFamily: 'Quicksand-Bold',

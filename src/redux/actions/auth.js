@@ -21,11 +21,9 @@ const register = (data) => {
       method: 'post',
       url: 'http://192.168.43.186:3000/auth/register',
       data: {
-        email: data.email,
-        full_name: data.full_name,
+        name: data.name,
         email: data.email,
         password: data.password,
-        role: data.role,
       },
     }),
   };
