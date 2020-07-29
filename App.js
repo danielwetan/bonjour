@@ -8,8 +8,10 @@ const {store, persistor} = storage;
 
 import Chats from './src/screens/Chats';
 import Contacts from './src/screens/Contacts';
+import Profile from './src/screens/Profile';
 import Login from './src/screens/Login';
 import Register from './src/screens/Register';
+
 
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -36,6 +38,15 @@ const ContactsStackScreen = () => {
   );
 };
 
+const ProfileStackScreen = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Login" component={Login} />
+    </Stack.Navigator>
+  );
+};
+
 const LoginStackScreen = () => {
   return (
     <Stack.Navigator>
@@ -55,6 +66,7 @@ const App = () => {
               <Tab.Screen name="Chats" component={ChatsStackScreen} />
               <Tab.Screen name="Contacts" component={ContactsStackScreen} />
               <Tab.Screen name="Login" component={LoginStackScreen} />
+              <Tab.Screen name="Profile" component={ProfileStackScreen} />
             </Tab.Navigator>
           </NavigationContainer>
         </PersistGate>
