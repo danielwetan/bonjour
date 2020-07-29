@@ -7,7 +7,7 @@ const login = (data) => {
       method: 'POST',
       url: 'http://192.168.43.186:3000/auth/login',
       data: {
-        username: data.username,
+        email: data.email,
         password: data.password,
       },
     }),
@@ -21,7 +21,7 @@ const register = (data) => {
       method: 'post',
       url: 'http://192.168.43.186:3000/auth/register',
       data: {
-        username: data.username,
+        email: data.email,
         full_name: data.full_name,
         email: data.email,
         password: data.password,

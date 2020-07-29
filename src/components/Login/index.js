@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 // import Icon from 'react-native-vector-icons/FontAwesome';
@@ -9,27 +10,27 @@ import {login} from '../../redux/actions/auth';
 
 import Modal from 'react-native-modal';
 
-
 const Login = (props) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const toggleModal = () => {
-    setIsModalVisible(false)
+    setIsModalVisible(false);
   };
 
   const userLogin = () => {
     const data = {
-      username: username,
+      email: email,
       password: password,
     };
     props
       .dispatch(login(data))
       // .then(() => (console.log(props.auth.isError)))
       .then(() => {
-        setIsModalVisible(true)
+        setIsModalVisible(true);
         // console.log('Login success!');
+        // console.log(data);
         // props.nav.navigate('Home');
       })
       .catch((err) => {
@@ -42,8 +43,8 @@ const Login = (props) => {
       <View style={styles.container}>
         <Text style={styles.title}>Username</Text>
         <Input
-          onChangeText={(text) => setUsername(text)}
-          placeholder="Username"
+          onChangeText={(text) => setEmail(text)}
+          placeholder="Email"
           inputStyle={{
             fontFamily: 'Quicksand-Bold',
           }}
@@ -58,28 +59,42 @@ const Login = (props) => {
             fontFamily: 'Quicksand-Bold',
           }}
         />
-        <Button onPress={() => userLogin()} title="Login" titleStyle={{fontFamily: 'Quicksand-Bold'}} />
+        <Button
+          onPress={() => userLogin()}
+          // onPress={() => console.log('Login success')}
+          title="Login"
+          titleStyle={{fontFamily: 'Quicksand-Bold'}}
+        />
         <Modal isVisible={isModalVisible}>
-          <View style={{ 
-            backgroundColor: 'white', 
-            height: 80, 
-            borderRadius: 10,
-            alignItems: 'center',
-            justifyContent: 'center',
+          <View
+            style={{
+              backgroundColor: 'white',
+              height: 80,
+              borderRadius: 10,
+              alignItems: 'center',
+              justifyContent: 'center',
             }}>
-              <View style={{
+            <View
+              style={{
                 flexDirection: 'row',
               }}>
-            <Text style={{
-              fontFamily: 'Quicksand-Bold',
-              fontSize: 18,
-              marginRight: 5,
-            }}>Login Success!</Text>
-            <Text style={{
-              fontFamily: 'Quicksand-Bold',
-              fontSize: 18,
-              color: 'blue',
-            }} onPress={() => props.nav.navigate('Home')}>Ok</Text>
+              <Text
+                style={{
+                  fontFamily: 'Quicksand-Bold',
+                  fontSize: 18,
+                  marginRight: 5,
+                }}>
+                Login Success!
+              </Text>
+              <Text
+                style={{
+                  fontFamily: 'Quicksand-Bold',
+                  fontSize: 18,
+                  color: 'blue',
+                }}
+                onPress={() => props.nav.navigate('Home')}>
+                Ok
+              </Text>
             </View>
           </View>
         </Modal>

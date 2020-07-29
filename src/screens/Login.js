@@ -6,7 +6,7 @@ import {SafeAreaView} from 'react-native';
 const Login = ({navigation}) => {
   return (
     <>
-      <SafeAreaView style={{backgroundColor: 'white', flex: 1}}>
+      <SafeAreaView>
         <Main nav={navigation} />
       </SafeAreaView>
     </>
