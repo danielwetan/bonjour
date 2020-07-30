@@ -58,7 +58,7 @@ const App = () => {
             <Tab.Navigator>
               <Tab.Screen name="Chats" component={ChatsStackScreen} />
               <Tab.Screen name="Contacts" component={ContactsStackScreen} />
-              <Tab.Screen name="Mraps" component={MapsStackScreen} />
+              <Tab.Screen name="Maps" component={MapsStackScreen} />
               <Tab.Screen name="Profile" component={ProfileStackScreen} />
             </Tab.Navigator>
           </NavigationContainer>
