@@ -9,10 +9,7 @@ const {store, persistor} = storage;
 import Chats from './src/screens/Chats';
 import Contacts from './src/screens/Contacts';
 import Profile from './src/screens/Profile';
-import Login from './src/screens/Login';
-import Register from './src/screens/Register';
-
-
+import Maps from './src/screens/Maps';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -24,7 +21,6 @@ const ChatsStackScreen = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Chats" component={Chats} />
-      <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );
 };
@@ -33,7 +29,6 @@ const ContactsStackScreen = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Contacts" component={Contacts} />
-      <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );
 };
@@ -42,16 +37,14 @@ const ProfileStackScreen = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );
 };
 
-const LoginStackScreen = () => {
+const MapsStackScreen = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="Chats" component={Chats} />
+      <Stack.Screen name="Maps" component={Maps} />
     </Stack.Navigator>
   );
 };
@@ -65,7 +58,7 @@ const App = () => {
             <Tab.Navigator>
               <Tab.Screen name="Chats" component={ChatsStackScreen} />
               <Tab.Screen name="Contacts" component={ContactsStackScreen} />
-              <Tab.Screen name="Login" component={LoginStackScreen} />
+              <Tab.Screen name="Mraps" component={MapsStackScreen} />
               <Tab.Screen name="Profile" component={ProfileStackScreen} />
             </Tab.Navigator>
           </NavigationContainer>

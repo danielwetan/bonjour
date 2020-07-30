@@ -3,7 +3,7 @@ import React from 'react';
 import {View, Text, TouchableHighlight} from 'react-native';
 import styles from './styles';
 import {Image, Button} from 'react-native-elements';
-// import img from '../../assets/images/2.jpg';
+// import {connect} from 'react-redux';
 
 const Message = (props) => {
   const img = 'http://192.168.43.186:3000/img/' + props.profile_img;

@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 // import {View, Text} from 'react-native';
 import axios from 'axios';
 import Message from './Message';
+// import {connect} from 'react-redux';
 
 const MessageList = () => {
   const [data, setData] = useState([]);
