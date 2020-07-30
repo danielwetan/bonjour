@@ -11,10 +11,11 @@ import Chats from './src/screens/Chats';
 import Contacts from './src/screens/Contacts';
 import Profile from './src/screens/Profile';
 import Maps from './src/screens/Maps';
+import Settings from './src/screens/Settings';
 
 // import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -105,7 +106,7 @@ const MapsStackScreen = () => {
   );
 };
 
-const ConversationStackScreen = () => {
+const SettingsStackScreen = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -119,8 +120,8 @@ const ConversationStackScreen = () => {
             // backgroundColor: 'red',
           },
         }}
-        name="Maps"
-        component={Maps}
+        name="Settings"
+        component={Settings}
       />
     </Stack.Navigator>
   );
@@ -186,11 +187,15 @@ const App = () => {
               <Tab.Screen
                 options={{
                   tabBarIcon: ({color, size}) => (
-                    <FontAwesome name="cog" color={color} size={30} />
+                    <MaterialCommunityIcons
+                      name="cog-outline"
+                      color={color}
+                      size={35}
+                    />
                   ),
                 }}
                 name="Settings"
-                component={ConversationStackScreen}
+                component={SettingsStackScreen}
               />
             </Tab.Navigator>
           </NavigationContainer>
