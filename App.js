@@ -33,7 +33,6 @@ const ChatsStackScreen = () => {
           },
           headerStyle: {
             borderBottomColor: 'red',
-            // backgroundColor: 'red',
           },
         }}
         name="Chats"
@@ -106,6 +105,27 @@ const MapsStackScreen = () => {
   );
 };
 
+const ConversationStackScreen = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        options={{
+          headerTitleStyle: {
+            fontSize: 20,
+            fontFamily: 'Quicksand-Bold',
+          },
+          headerStyle: {
+            borderBottomColor: 'red',
+            // backgroundColor: 'red',
+          },
+        }}
+        name="Maps"
+        component={Maps}
+      />
+    </Stack.Navigator>
+  );
+};
+
 const App = () => {
   return (
     <>
@@ -121,7 +141,7 @@ const App = () => {
                   paddingBottom: 15,
                 },
                 style: {
-                  height: 80,
+                  height: 75,
                 },
                 tabStyle: {
                   marginTop: 15,
@@ -162,6 +182,15 @@ const App = () => {
                 }}
                 name="Profile"
                 component={ProfileStackScreen}
+              />
+              <Tab.Screen
+                options={{
+                  tabBarIcon: ({color, size}) => (
+                    <FontAwesome name="cog" color={color} size={30} />
+                  ),
+                }}
+                name="Settings"
+                component={ConversationStackScreen}
               />
             </Tab.Navigator>
           </NavigationContainer>
