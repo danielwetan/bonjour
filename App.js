@@ -25,7 +25,20 @@ const Tab = createBottomTabNavigator();
 const ChatsStackScreen = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Chats" component={Chats} />
+      <Stack.Screen
+        options={{
+          headerTitleStyle: {
+            fontSize: 20,
+            fontFamily: 'Quicksand-Bold',
+          },
+          headerStyle: {
+            borderBottomColor: 'red',
+            // backgroundColor: 'red',
+          },
+        }}
+        name="Chats"
+        component={Chats}
+      />
     </Stack.Navigator>
   );
 };
@@ -33,7 +46,20 @@ const ChatsStackScreen = () => {
 const ContactsStackScreen = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Contacts" component={Contacts} />
+      <Stack.Screen
+        options={{
+          headerTitleStyle: {
+            fontSize: 20,
+            fontFamily: 'Quicksand-Bold',
+          },
+          headerStyle: {
+            borderBottomColor: 'red',
+            // backgroundColor: 'red',
+          },
+        }}
+        name="Contacts"
+        component={Contacts}
+      />
     </Stack.Navigator>
   );
 };
@@ -41,7 +67,20 @@ const ContactsStackScreen = () => {
 const ProfileStackScreen = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen
+        options={{
+          headerTitleStyle: {
+            fontSize: 20,
+            fontFamily: 'Quicksand-Bold',
+          },
+          headerStyle: {
+            borderBottomColor: 'red',
+            // backgroundColor: 'red',
+          },
+        }}
+        name="Profile"
+        component={Profile}
+      />
     </Stack.Navigator>
   );
 };
@@ -49,7 +88,20 @@ const ProfileStackScreen = () => {
 const MapsStackScreen = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Maps" component={Maps} />
+      <Stack.Screen
+        options={{
+          headerTitleStyle: {
+            fontSize: 20,
+            fontFamily: 'Quicksand-Bold',
+          },
+          headerStyle: {
+            borderBottomColor: 'red',
+            // backgroundColor: 'red',
+          },
+        }}
+        name="Maps"
+        component={Maps}
+      />
     </Stack.Navigator>
   );
 };
@@ -77,8 +129,6 @@ const App = () => {
               }}>
               <Tab.Screen
                 options={{
-                  tabBarLabel: 'Profile',
-
                   tabBarIcon: ({color, size}) => (
                     <FontAwesome name="comment" color={color} size={30} />
                   ),
