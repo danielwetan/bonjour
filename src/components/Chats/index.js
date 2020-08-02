@@ -9,7 +9,6 @@ const Chats = (props) => {
     <>
       <Search />
       <MessageList nav={props.nav}/>
-      {console.log(props.nav)}
     </>
   );
 };

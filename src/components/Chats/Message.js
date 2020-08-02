@@ -18,7 +18,7 @@ const Message = (props) => {
         <TouchableHighlight
           underlayColor={'lightgray'}
           activeOpacity={1}
-          onPress={() => props.nav.navigate("Conversation", { screen: "ChatsStackScreen"})}>
+          onPress={() => props.nav.navigate("Conversation")}>
           <View
             style={{
               flexDirection: 'row',

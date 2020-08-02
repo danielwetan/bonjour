@@ -25,39 +25,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-// const ChatsStackScreen = () => {
-//   return (
-//     <Stack.Navigator>
-//       <Stack.Screen
-//         options={{
-//           headerTitleStyle: {
-//             fontSize: 20,
-//             fontFamily: 'Quicksand-Bold',
-//           },
-//           headerStyle: {
-//             borderBottomColor: 'red',
-//           },
-//         }}
-//         name="Chats"
-//         component={Chats}
-//       />
-//       <Stack.Screen
-//         options={{
-//           headerTitleStyle: {
-//             fontSize: 20,
-//             fontFamily: 'Quicksand-Bold',
-//           },
-//           headerStyle: {
-//             borderBottomColor: 'red',
-//           },
-//         }}
-//         name="Conversation"
-//         component={Conversation}
-//       />
-//     </Stack.Navigator>
-//   );
-// };
-
 const ChatsStackScreen = () => {
   return (
     <Stack.Navigator>
@@ -74,9 +41,42 @@ const ChatsStackScreen = () => {
         name="Chats"
         component={Chats}
       />
+      <Stack.Screen
+        options={{
+          headerTitleStyle: {
+            fontSize: 20,
+            fontFamily: 'Quicksand-Bold',
+          },
+          headerStyle: {
+            borderBottomColor: 'red',
+          },
+        }}
+        name="Conversation"
+        component={Conversation}
+      />
     </Stack.Navigator>
   );
 };
+
+// const ChatsStackScreen = () => {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen
+//         options={{
+//           headerTitleStyle: {
+//             fontSize: 20,
+//             fontFamily: 'Quicksand-Bold',
+//           },
+//           headerStyle: {
+//             borderBottomColor: 'red',
+//           },
+//         }}
+//         name="Chats"
+//         component={Chats}
+//       />
+//     </Stack.Navigator>
+//   );
+// };
 
 // const ConversationStackScreen = () => {
 //   return (
@@ -183,73 +183,64 @@ const SettingsStackScreen = () => {
   );
 };
 
-const ChatsTabs = () => {
-  return (
-    <Tab.Navigator
-      tabBarOptions={{
-        labelStyle: {
-          fontSize: 12,
-          fontFamily: 'Quicksand-Bold',
-          // marginBottom: 15,
-          paddingBottom: 15,
-        },
-        style: {
-          height: 75,
-        },
-        tabStyle: {
-          marginTop: 15,
-        },
-      }}>
-      <Tab.Screen
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <FontAwesome name="comment" color={color} size={30} />
-          ),
-        }}
-        name="Chats"
-        component={ChatsStackScreen}
-      />
-      <Tab.Screen
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <FontAwesome name="address-book" color={color} size={30} />
-          ),
-        }}
-        name="Contacts"
-        component={ContactsStackScreen}
-      />
-      <Tab.Screen
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <FontAwesome name="compass" color={color} size={30} />
-          ),
-        }}
-        name="Maps"
-        component={MapsStackScreen}
-      />
-      <Tab.Screen
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <FontAwesome name="user" color={color} size={30} />
-          ),
-        }}
-        name="Profile"
-        component={ProfileStackScreen}
-      />
-    </Tab.Navigator>
-  )
-}
-
 const App = () => {
   return (
     <>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <NavigationContainer>
-            <Stack.Navigator>
-              <Stack.Screen name="Chats" component={ChatsTabs} />
-              <Stack.Screen name="Conversation" component={Conversation} />
-            </Stack.Navigator>
+            <Tab.Navigator
+              tabBarOptions={{
+                labelStyle: {
+                  fontSize: 12,
+                  fontFamily: 'Quicksand-Bold',
+                  // marginBottom: 15,
+                  paddingBottom: 15,
+                },
+                style: {
+                  height: 75,
+                },
+                tabStyle: {
+                  marginTop: 15,
+                },
+              }}>
+              <Tab.Screen
+                options={{
+                  tabBarIcon: ({color, size}) => (
+                    <FontAwesome name="comment" color={color} size={30} />
+                  ),
+                }}
+                name="Chats"
+                component={ChatsStackScreen}
+              />
+              <Tab.Screen
+                options={{
+                  tabBarIcon: ({color, size}) => (
+                    <FontAwesome name="address-book" color={color} size={30} />
+                  ),
+                }}
+                name="Contacts"
+                component={ContactsStackScreen}
+              />
+              <Tab.Screen
+                options={{
+                  tabBarIcon: ({color, size}) => (
+                    <FontAwesome name="compass" color={color} size={30} />
+                  ),
+                }}
+                name="Maps"
+                component={MapsStackScreen}
+              />
+              <Tab.Screen
+                options={{
+                  tabBarIcon: ({color, size}) => (
+                    <FontAwesome name="user" color={color} size={30} />
+                  ),
+                }}
+                name="Profile"
+                component={ProfileStackScreen}
+              />
+            </Tab.Navigator>
           </NavigationContainer>
         </PersistGate>
       </Provider>
