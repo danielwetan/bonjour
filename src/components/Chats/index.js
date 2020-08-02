@@ -8,7 +8,8 @@ const Chats = (props) => {
   return (
     <>
       <Search />
-      <MessageList />
+      <MessageList nav={props.nav}/>
+      {console.log(props.nav)}
     </>
   );
 };

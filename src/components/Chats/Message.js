@@ -15,7 +15,10 @@ const Message = (props) => {
           marginLeft: 20,
           marginRight: 20,
         }}>
-        <TouchableHighlight underlayColor={'lightgray'} activeOpacity={1}>
+        <TouchableHighlight
+          underlayColor={'lightgray'}
+          activeOpacity={1}
+          onPress={() => props.nav.navigate("Conversation", { screen: "ChatsStackScreen"})}>
           <View
             style={{
               flexDirection: 'row',

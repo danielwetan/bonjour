@@ -25,7 +25,7 @@ const Profile = (props) => {
         <Text style={styles.email}>{props.auth.data.about}</Text>
         <Text style={styles.email}>{props.auth.data.email}</Text>
         <Button
-          buttonStyle={{backgroundColor: '#004380', width: 100}}
+          buttonStyle={{backgroundColor: '#004380', width: 100, marginTop: 10}}
           titleStyle={{fontFamily: 'Quicksand-Bold', fontSize: 16}}
           title="Logout"
           onPress={() => logout()}

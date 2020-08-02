@@ -12,6 +12,8 @@ import Contacts from './src/screens/Contacts';
 import Profile from './src/screens/Profile';
 import Maps from './src/screens/Maps';
 import Settings from './src/screens/Settings';
+import Login from './src/screens/Login';
+import Conversation from './src/screens/Conversation';
 
 // import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
@@ -39,9 +41,63 @@ const ChatsStackScreen = () => {
         name="Chats"
         component={Chats}
       />
+      <Stack.Screen
+        options={{
+          headerTitleStyle: {
+            fontSize: 20,
+            fontFamily: 'Quicksand-Bold',
+          },
+          headerStyle: {
+            borderBottomColor: 'red',
+          },
+        }}
+        name="Conversation"
+        component={Conversation}
+      />
     </Stack.Navigator>
   );
 };
+
+// const ChatsStackScreen = () => {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen
+//         options={{
+//           headerTitleStyle: {
+//             fontSize: 20,
+//             fontFamily: 'Quicksand-Bold',
+//           },
+//           headerStyle: {
+//             borderBottomColor: 'red',
+//           },
+//         }}
+//         name="Chats"
+//         component={Chats}
+//       />
+//     </Stack.Navigator>
+//   );
+// };
+
+// const ConversationStackScreen = () => {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen
+//         options={{
+//           headerTitleStyle: {
+//             fontSize: 20,
+//             fontFamily: 'Quicksand-Bold',
+//           },
+//           headerStyle: {
+//             borderBottomColor: 'red',
+//           },
+//         }}
+//         name="Conversation"
+//         component={Conversation}
+//       />
+//     </Stack.Navigator>
+//   );
+// };
+
 
 const ContactsStackScreen = () => {
   return (

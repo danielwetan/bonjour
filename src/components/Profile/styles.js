@@ -22,7 +22,7 @@ module.exports = {
     fontSize: 16,
     marginTop: 10,
     fontFamily: 'Quicksand-Medium',
-    marginBottom: 10,
+    // marginBottom: 10,
   },
   history: {
     paddingnTop: 50,

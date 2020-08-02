@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Message from './Message';
 
-const MessageList = () => {
+const MessageList = (props) => {
   const [data, setData] = useState([]);
 
   const getMessages = () => {
@@ -35,6 +35,7 @@ const MessageList = () => {
             sender_name={singleData.sender_name}
             profile_img={singleData.profile_img}
             message={singleData.message}
+            nav={props.nav}
           />
         );
       })}
