@@ -1,6 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {View, Text, Button} from 'react-native';
+import { Image } from 'react-native-elements';
 
 import {Provider} from 'react-redux';
 import storage from './src/redux/store';
@@ -18,6 +19,7 @@ import Conversation from './src/screens/Conversation';
 // import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import img from './src/assets/images/profile.jpg'
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -251,10 +253,19 @@ const App = () => {
               <Stack.Screen
               name="Conversation"
               component={Conversation}
-              // options={{
-              //   title: <text>daniel</text>
-              // }}
-              options={({ route }) => ({ title: route.params.name })}
+              options={({ route }) => ({
+              headerTitle: <View><Text style={{paddingLeft: 30, fontSize: 18, fontFamily: 'Quicksand-Bold'}}>{route.params.name}</Text></View>,
+              // headerRight: <Buttouun name="Hello" />
+              // headerRight: () => <Text>{route.params.name}</Text>,
+              headerRight: () =>
+              // <Button title="Image"
+              <Image
+                source={{uri: route.params.image}}
+                style={{ width: 40, height: 40, borderRadius: 50, marginRight: 300}}
+              />
+
+              // />,
+              })}
                />
             </Stack.Navigator>
           </NavigationContainer>

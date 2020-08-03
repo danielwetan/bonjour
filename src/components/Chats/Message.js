@@ -15,12 +15,10 @@ const Message = (props) => {
           marginLeft: 20,
           marginRight: 20,
         }}>
-
-          {console.log()}
         <TouchableHighlight
           underlayColor={'lightgray'}
           activeOpacity={1}
-          onPress={() => props.nav.navigate("Conversation", {name: props.sender_name})}>
+          onPress={() => props.nav.navigate("Conversation", {name: props.sender_name, image: img})}>
           <View
             style={{
               flexDirection: 'row',
