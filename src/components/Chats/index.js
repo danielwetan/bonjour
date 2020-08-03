@@ -5,10 +5,11 @@ import Search from '../Public/Search';
 import Message from './Message';
 import MessageList from './MessageList';
 const Chats = (props) => {
+  // const {name} = props.route.params
   return (
     <>
       <Search />
-      <MessageList nav={props.nav}/>
+      <MessageList nav={props.nav} />
     </>
   );
 };

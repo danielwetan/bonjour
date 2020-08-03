@@ -7,6 +7,9 @@ import Message from './Message';
 const MessageList = (props) => {
   const [data, setData] = useState([]);
 
+  const [name, setName] = useState('');
+  let nameParams = props.name
+
   const getMessages = () => {
     axios({
       method: 'GET',
@@ -19,6 +22,10 @@ const MessageList = (props) => {
         console.log(err.response);
       });
   };
+
+  useEffect(() => {
+    setName(nameParams)
+  }, [nameParams])
 
   useEffect(() => {
     getMessages();

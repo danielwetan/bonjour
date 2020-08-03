@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Button} from 'react-native';
 
 import {Provider} from 'react-redux';
 import storage from './src/redux/store';
@@ -248,7 +248,14 @@ const App = () => {
           <NavigationContainer>
             <Stack.Navigator>
               <Stack.Screen name="Chats" component={ChatsTabs} />
-              <Stack.Screen name="Conversation" component={Conversation} />
+              <Stack.Screen
+              name="Conversation"
+              component={Conversation}
+              // options={{
+              //   title: <text>daniel</text>
+              // }}
+              options={({ route }) => ({ title: route.params.name })}
+               />
             </Stack.Navigator>
           </NavigationContainer>
         </PersistGate>
