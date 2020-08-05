@@ -18,7 +18,8 @@ const Message = (props) => {
         <TouchableHighlight
           underlayColor={'lightgray'}
           activeOpacity={1}
-          onPress={() => props.nav.navigate("Conversation", {name: props.sender_name, image: img, sender_id: props.sender_id})}>
+          // onPress={() => props.nav.naddvigate("Conversation", {name: props.sender_name, image: img, sender_id: props.sender_id})}>
+          onPress={() => props.nav.navigate("Conversation", {sender_id:props.sender_id, receiver_id:props.receiver_id, name:props.sender_name, image: img})}>
           <View
             style={{
               flexDirection: 'row',

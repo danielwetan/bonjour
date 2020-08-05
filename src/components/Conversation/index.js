@@ -1,77 +1,60 @@
-import React, {useState, useCallback, useEffect} from 'react';
-import {GiftedChat} from 'react-native-gifted-chat';
-import io from 'socket.io-client';
+import React, {useState, useEffect} from 'react';
+import {View, Text} from 'react-native';
 import axios from 'axios';
+import BubbleChat from './BubbleChat';
 
 const Conversation = (props) => {
   const [messages, setMessages] = useState([]);
-  const [msg, setMsg] = useState('');
-  const [senderId, setSenderId] = useState('');
+  const [sender, setSender] = useState('');
+  const [receiver, setReceiver] = useState('');
 
-  const [socket, setSocket] = useState('');
-
-  const submitChat = () => {
-    socket.emit('chat-message', {data: messages});
-    // change messages above to only new submit message
-  }
-
-  const getMsg = () => {
+  const getMessages = () => {
     axios({
       method: 'GET',
-      url: `http://192.168.43.186:3000/msg?sender=${props.sender_id}&receiver=2`,
+      url: `http://192.168.43.186:3000/msg?sender=${sender}&receiver=${receiver}`
     })
     .then((res) => {
-      setMsg(res.data.body);
+      setMessages(res.data.body);
     })
     .catch((err) => {
       console.log(err.response);
     })
   }
 
-  useEffect(() => {
-    setSenderId(props.sender_id)
-    getMsg()
-  }, [])
 
   useEffect(() => {
-    setSocket(io('http://192.168.43.186:3000/'));
-    console.log("#######")
-    console.log(props.sender_id)
-    console.log(msg);
-    setMessages([
-        {
-          _id: 1,
-          text: 'Hello developer',
-          // text: `${msg[0].message}`,
-          createdAt: new Date(),
-          user: {
-            _id: 2,
-            name: 'React Native',
-          },
-        },
-      ]);
-  }, [msg]);
+    setSender(props.sender_id);
+    setReceiver(props.receiver_id)
+  }, [sender, receiver])
 
-  const onSend = useCallback((messages = []) => {
-    setMessages((previousMessages) =>
-      GiftedChat.append(previousMessages, messages),
-    );
-  }, []);
+  useEffect(() => {
+    getMessages();
+  }, [sender, receiver])
 
-  return (
-    <GiftedChat
-      messages={messages}
-      // onSend={(messages) => onSend(messages)}
-      onSend={(messages) => {
-        submitChat(messages)
-        onSend(messages)
-      }}
-      user={{
-        _id: 1,
-      }}
-      renderAvatar={() => null}
-    />
-  );
-};
+  return(
+    <>
+      <View>
+        {messages.map((msg) => {
+          return(
+            <BubbleChat
+              key={msg.id}
+              id={msg.id}
+              data={msg.message}
+              sender={msg.sender_id}
+              receiver={msg.receiver_id}
+            />
+          )
+        })}
+      </View>
+    </>
+  )
+}
 
-export default Conversation;
+export default Conversation
+
+// sender_id={singleData.sender_id}
+// receiver_id={singleData.receiver_id}
+// sender_name={singleData.sender_name}
+// profile_img={singleData.profile_img}
+// message={singleData.message}
+// nav={props.nav}
