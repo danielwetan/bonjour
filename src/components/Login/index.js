@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Alert} from 'react-native';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input, Button} from 'react-native-elements';
 import styles from './styles';
@@ -19,6 +19,13 @@ const Login = (props) => {
     setIsModalVisible(false);
   };
 
+  const displayAlert = () => {
+    Alert.alert(
+      'Login success!',
+      'Enjoy your messages'
+    )
+  }
+
   const userLogin = () => {
     const data = {
       email: email,
@@ -28,10 +35,19 @@ const Login = (props) => {
       .dispatch(login(data))
       // .then(() => (console.log(props.auth.isError)))
       .then(() => {
-        setIsModalVisible(true);
+        // setIsModalVisible(true);
         // console.log('Login success!');
         // console.log(data);
-        // props.nav.navigate('Home');
+        props.nav.navigate('Chats');
+        props.nav.reset({
+          index: 0,
+          routes: [
+            {
+              name: 'Chats',
+            }
+          ]
+        })
+        displayAlert()
       })
       .catch((err) => {
         console.log('Username or password is wrong. Message:', err);
@@ -41,7 +57,7 @@ const Login = (props) => {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.title}>Username</Text>
+        <Text style={styles.title}>Email</Text>
         <Input
           onChangeText={(text) => setEmail(text)}
           placeholder="Email"

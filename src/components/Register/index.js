@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Alert} from 'react-native';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input, Button} from 'react-native-elements';
 import styles from './styles';
@@ -21,6 +21,13 @@ const Register = (props) => {
     setIsModalVisible(false);
   };
 
+  const displayAlert = () => {
+    Alert.alert(
+      'Register success!',
+      'Please login'
+    )
+  }
+
   const userRegistration = () => {
     const data = {
       name: name,
@@ -30,7 +37,16 @@ const Register = (props) => {
     props
       .dispatch(register(data))
       .then(() => {
-        setIsModalVisible(true);
+        // setIsModalVisible(true);
+        displayAlert()
+        props.nav.reset({
+          index: 0,
+          routes: [
+            {
+              name: 'Login',
+            }
+          ]
+        })
       })
       .catch((err) => {
         console.log(err);

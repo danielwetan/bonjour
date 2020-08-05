@@ -11,7 +11,15 @@ const Profile = (props) => {
   const logout = () => {
     props.logout();
     console.log('Logout success!');
-    props.nav.navigate('Login');
+    // props.nav.navigate('Login');
+    props.nav.reset({
+      index: 0,
+      routes: [
+        {
+          name: 'Login',
+        }
+      ]
+    })
   };
 
   return (

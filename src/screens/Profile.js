@@ -6,7 +6,7 @@ const Profile = ({navigation}) => {
   return (
     <>
       <SafeAreaView style={{backgroundColor: 'white', flex: 1}}>
-        <Main />
+        <Main nav={navigation}/>
       </SafeAreaView>
     </>
   );
