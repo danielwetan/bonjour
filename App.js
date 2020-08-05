@@ -13,7 +13,7 @@ import Contacts from './src/screens/Contacts';
 import Profile from './src/screens/Profile';
 import Maps from './src/screens/Maps';
 import Settings from './src/screens/Settings';
-// import Splash from './src/screens/Splash'
+import Splash from './src/screens/Splash'
 import Login from './src/screens/Login';
 import Register from './src/screens/Register'
 import Conversation from './src/screens/Conversation';
@@ -252,6 +252,7 @@ const App = ({navigation}) => {
         <PersistGate persistor={persistor}>
           <NavigationContainer>
             <Stack.Navigator>
+              <Stack.Screen name="Splash" component={Splash} options={{headerShown: false}} />
               <Stack.Screen name="Register" component={Register} options={{headerLeft: null}}/>
               <Stack.Screen name="Login" component={Login} options={{headerLeft: null}}/>
               <Stack.Screen name="Chats" component={ChatsTabs} options={{title: 'Bonjour', headerLeft: null}}/>

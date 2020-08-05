@@ -38,7 +38,6 @@ const Login = (props) => {
         // setIsModalVisible(true);
         // console.log('Login success!');
         // console.log(data);
-        props.nav.navigate('Chats');
         props.nav.reset({
           index: 0,
           routes: [
