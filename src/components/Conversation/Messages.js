@@ -1,13 +1,10 @@
 import React, {useState, useCallback, useEffect} from 'react';
 import {GiftedChat} from 'react-native-gifted-chat';
 import io from 'socket.io-client';
-import axios from 'axios';
 
-const Conversation = (props) => {
+const Messages = (props) => {
   const [messages, setMessages] = useState([]);
-  const [msg, setMsg] = useState('');
   const [senderId, setSenderId] = useState('');
-
   const [socket, setSocket] = useState('');
 
   const submitChat = () => {
@@ -74,4 +71,4 @@ const Conversation = (props) => {
   );
 };
 
-export default Conversation;
+export default Messages;

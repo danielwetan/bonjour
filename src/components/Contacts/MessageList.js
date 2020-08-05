@@ -5,7 +5,7 @@ import axios from 'axios';
 import Message from './Message';
 // import {connect} from 'react-redux';
 
-const MessageList = () => {
+const MessageList = (props) => {
   const [data, setData] = useState([]);
 
   const getMessages = () => {
@@ -23,6 +23,7 @@ const MessageList = () => {
 
   useEffect(() => {
     getMessages();
+    console.log("ALL DATA:")
   }, []);
 
   return (
@@ -35,9 +36,12 @@ const MessageList = () => {
             name={singleData.name}
             profile_img={singleData.profile_img}
             about={singleData.about}
+            nav={props.nav}
+            email={singleData.email}
           />
         );
       })}
+      {console.log(data)}
     </>
   );
 };

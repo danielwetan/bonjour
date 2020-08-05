@@ -15,7 +15,7 @@ const Message = (props) => {
           marginLeft: 20,
           marginRight: 20,
         }}>
-        <TouchableHighlight underlayColor={'lightgray'} activeOpacity={1}>
+        <TouchableHighlight underlayColor={'lightgray'} activeOpacity={1} onPress={() => props.nav.navigate('ContactProfile', {name: props.name, email: props.email, about: props.about, profile_img: props.profile_img})}>
           <View
             style={{
               flexDirection: 'row',

@@ -38,6 +38,7 @@ const MessageList = (props) => {
           <Message
             key={singleData.id}
             id={singleData.id}
+            sender_id={singleData.sender_id}
             receiver_id={singleData.receiver_id}
             sender_name={singleData.sender_name}
             profile_img={singleData.profile_img}

@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, TouchableHighlight} from 'react-native';
 import { Image } from 'react-native-elements';
 
 import {Provider} from 'react-redux';
@@ -15,6 +15,7 @@ import Maps from './src/screens/Maps';
 import Settings from './src/screens/Settings';
 import Login from './src/screens/Login';
 import Conversation from './src/screens/Conversation';
+import ContactProfile from './src/screens/ContactProfile';
 
 // import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
@@ -185,7 +186,7 @@ const SettingsStackScreen = () => {
   );
 };
 
-const ChatsTabs = () => {
+const ChatsTabs = ({navigation}) => {
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -242,7 +243,7 @@ const ChatsTabs = () => {
   )
 }
 
-const App = () => {
+const App = ({navigation}) => {
   return (
     <>
       <Provider store={store}>
@@ -250,6 +251,7 @@ const App = () => {
           <NavigationContainer>
             <Stack.Navigator>
               <Stack.Screen name="Chats" component={ChatsTabs} />
+              <Stack.Screen name="ContactProfile" component={ContactProfile} options={{title: false}}/>
               <Stack.Screen
               name="Conversation"
               component={Conversation}
@@ -259,10 +261,14 @@ const App = () => {
               // headerRight: () => <Text>{route.params.name}</Text>,
               headerRight: () =>
               // <Button title="Image"
+              <TouchableHighlight
+              onPress={() => console.log("Go to profile!")}
+              >
               <Image
                 source={{uri: route.params.image}}
                 style={{ width: 40, height: 40, borderRadius: 50, marginRight: 300}}
               />
+              </TouchableHighlight>
 
               // />,
               })}

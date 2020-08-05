@@ -8,7 +8,7 @@ const Contacts = (props) => {
   return (
     <>
       <Search />
-      <MessageList />
+      <MessageList nav={props.nav}/>
     </>
   );
 };
