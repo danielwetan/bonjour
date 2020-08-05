@@ -6,8 +6,7 @@ const BubbleChat = (props) => {
   return(
     <>
       <View>
-      {props.sender==2 ? <Text style={styles.msg1}>{props.data}</Text> : <Text style={styles.msg2}>{props.data}</Text>}
-        {console.log(props.data)}
+        {props.sender==2 ? <Text style={styles.msg1}>{props.data}</Text> : <Text style={styles.msg2}>{props.data}</Text>}
       </View>
     </>
   )

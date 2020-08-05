@@ -1,12 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TextInput} from 'react-native';
 import axios from 'axios';
 import BubbleChat from './BubbleChat';
+import styles from './styles';
 
 const Conversation = (props) => {
   const [messages, setMessages] = useState([]);
   const [sender, setSender] = useState('');
   const [receiver, setReceiver] = useState('');
+
+  const [value, onChangeText] = useState('');
 
   const getMessages = () => {
     axios({
@@ -31,9 +34,13 @@ const Conversation = (props) => {
     getMessages();
   }, [sender, receiver])
 
+  const clearMsg = () => {
+    onChangeText('')
+  }
+
   return(
     <>
-      <View>
+      <View style={{flex: 1, backgroundColor: 'white',}}>
         {messages.map((msg) => {
           return(
             <BubbleChat
@@ -45,6 +52,17 @@ const Conversation = (props) => {
             />
           )
         })}
+        <View style={styles.bottom}>
+          <TextInput
+            style={styles.input}
+            onChangeText={text => onChangeText(text)}
+            value={value}
+            onSubmitEditing={() => {
+              console.log(value)
+              clearMsg()
+            }}
+          />
+        </View>
       </View>
     </>
   )
