@@ -16,12 +16,15 @@ const Profile = (props) => {
       }}>
         <Image
           source={{uri: img}}
-          style={{ width: 200, height: 200, borderRadius: 100,}}
+          style={{ width: 150, height: 150, borderRadius: 100,}}
         />
-        <Text style={styles.email}>{props.name}</Text>
-        <Text style={styles.email}>{props.about}</Text>
+        <Text style={styles.name}>{props.name}</Text>
+        <Text style={styles.about}>{props.about}</Text>
         <Text style={styles.email}>{props.email}</Text>
-</View>
+        <View style={styles.button}>
+        <Button onPress={() => props.nav.navigate("Conversation", {name: props.name, image: img, sender_id: props.sender_id})} title="Chat"/>
+        </View>
+      </View>
       </View>
       // </View>
     // </>

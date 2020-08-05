@@ -41,8 +41,8 @@ const Conversation = (props) => {
     setMessages([
         {
           _id: 1,
-          // text: 'Hello developer',
-          text: `${msg[0].message}`,
+          text: 'Hello developer',
+          // text: `${msg[0].message}`,
           createdAt: new Date(),
           user: {
             _id: 2,
