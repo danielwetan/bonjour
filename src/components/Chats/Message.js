@@ -37,8 +37,8 @@ const Message = (props) => {
                 source={{uri: img}}
                 // source={img}
                 style={{
-                  width: 70,
-                  height: 70,
+                  width: 60,
+                  height: 60,
                   borderRadius: 50,
                   overflow: 'hidden',
                 }}
@@ -47,7 +47,7 @@ const Message = (props) => {
             <View
               style={{
                 marginRight: 100,
-                marginTop: 10,
+                // marginTop: 10,
                 marginLeft: 20,
               }}>
               <Text

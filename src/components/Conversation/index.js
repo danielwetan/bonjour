@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TextInput, ScrollView} from 'react-native';
+import {View, Text, TextInput, ScrollView, FlatList, Button} from 'react-native';
 import axios from 'axios';
 import styles from './styles';
 import io from 'socket.io-client';
@@ -23,6 +23,24 @@ class Conversation extends React.Component {
   clearMsg() {
     this.setState({
       value: ''
+    })
+  }
+
+  postMessage = () => {
+    axios({
+      method: 'POST',
+      url: 'http://192.168.43.186:3000/msg',
+      data: {
+        sender_id: this.props.receiver_id,
+        receiver_id: this.props.sender_id,
+        message: this.state.value
+      }
+    })
+    .then(() => {
+      console.log('success!')
+    })
+    .catch((err) => {
+      console.log(err.Response)
     })
   }
 
@@ -53,24 +71,30 @@ class Conversation extends React.Component {
   render() {
   return(
     <>
-      <ScrollView style={{backgroundColor: 'white',}}>
+    <View style={{flex: 1, position: 'relative',}}>
+      <ScrollView style={{backgroundColor: 'white', width: '100%', height: '100%',}}>
         {this.state.messages.map((data) => {
           return (
-            <View key={data.id} >
+            <View key={data.id} data={data.id} >
               {data.sender_id==2 ? <Text key={data.id} id={data.id} style={styles.msg}>{data.message}</Text> : <Text key={data.id} id={data.id} style={styles.msg2}>{data.message}</Text>}
             </View>
           )
         })}
-
-        <View>
-          <TextInput
-            style={styles.input}
-            onChangeText={text => onChangeText(text)}
-            // value={value}
-          />
-        </View>
-
       </ScrollView>
+      <View style={{position: 'absolute', width: '100%', bottom: 0, right: 0, left: 0,}}>
+        <TextInput
+          style={styles.input}
+          onChangeText={text => this.setState({value: text})}
+          value={this.state.value}
+          onSubmitEditing={() => {
+            console.log(this.state.value)
+            this.setState({value: ''})
+            this.postMessage()
+          }}
+          placeholder={'Type a message...'}
+        />
+      </View>
+      </View>
     </>
   )
 }

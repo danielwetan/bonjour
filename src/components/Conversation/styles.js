@@ -1,14 +1,13 @@
 module.exports = {
   input: {
-    height: 40,
+    fontFamily: 'Quicksand-SemiBold',
+    fontSize: 15,
+    paddingLeft: 20,
+    height: 45,
     borderColor: 'lightgray',
-    color: 'red',
     borderWidth: 1,
     width: '100%',
-    // position: 'absolute',
-    // bottom: 0,
-    marginTop: 540,
-    justifyContent: 'flex-end',
+    zIndex: 2,
   },
   msg: {
     fontFamily: 'Quicksand-SemiBold',
