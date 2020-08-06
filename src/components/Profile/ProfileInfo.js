@@ -31,10 +31,6 @@ const Profile = (props) => {
           alignItems: 'center',
           marginTop: 10,
         }}>
-          <Image
-            source={{uri: img}}
-            style={{ width: 150, height: 150, borderRadius: 100,}}
-          />
         <Text style={styles.name}>{props.auth.data.name}</Text>
         <Text style={styles.email}>{props.auth.data.about}</Text>
         <Text style={styles.email}>{props.auth.data.email}</Text>

@@ -12,6 +12,7 @@ class Conversation extends React.Component {
       sender: '',
       receiver: '',
       value: '',
+      tmpMsg: '',
     };
   }
 
@@ -28,7 +29,6 @@ class Conversation extends React.Component {
   componentDidMount() {
     this.socket = io('http://192.168.43.186:3000');
     this.socket.on('message', (msg) => {
-      console.log('here: ', msg);
       this.setState({
         messages: [...this.state.messages, msg]
       });
@@ -53,15 +53,24 @@ class Conversation extends React.Component {
   render() {
   return(
     <>
-      <View style={{flex: 1, backgroundColor: 'white',}}>
+      <ScrollView style={{backgroundColor: 'white',}}>
         {this.state.messages.map((data) => {
           return (
-            <View key={data.id} id={data.id}>
-              <Text>{data.message}</Text>
+            <View key={data.id} >
+              {data.sender_id==2 ? <Text key={data.id} id={data.id} style={styles.msg}>{data.message}</Text> : <Text key={data.id} id={data.id} style={styles.msg2}>{data.message}</Text>}
             </View>
           )
         })}
-      </View>
+
+        <View>
+          <TextInput
+            style={styles.input}
+            onChangeText={text => onChangeText(text)}
+            // value={value}
+          />
+        </View>
+
+      </ScrollView>
     </>
   )
 }

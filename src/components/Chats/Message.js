@@ -61,7 +61,7 @@ const Message = (props) => {
               <Text
                 style={{
                   paddingTop: 3,
-                  fontSize: 16,
+                  fontSize: 15,
                   fontFamily: 'Quicksand-Medium',
                   color: '#373D3F',
                 }}>
