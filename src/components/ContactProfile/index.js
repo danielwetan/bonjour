@@ -22,7 +22,6 @@ const Profile = (props) => {
         <Text style={styles.about}>{props.about}</Text>
         <Text style={styles.email}>{props.email}</Text>
         <View style={styles.button}>
-        <Button onPress={() => props.nav.navigate("Conversation", {name: props.name, image: img, sender_id: props.sender_id})} title="Chat"/>
         </View>
       </View>
       </View>
@@ -33,3 +32,4 @@ const Profile = (props) => {
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 export default Profile;
+// <Button onPress={() => props.nav.navigate("Conversation", {name: props.name, image: img, sender_id: props.sender_id})} title="Chat"/>
