@@ -2,19 +2,18 @@
 import React, {useState, useEffect} from 'react';
 // import {View, Text} from 'react-native';
 import axios from 'axios';
-import Message from './Message';
-// import {connect} from 'react-redux';
+import Message from './Contact';
+import {getContact} from '../../redux/actions/contact';
+import {connect} from 'react-redux';
 
-const MessageList = (props) => {
+const ContactList = (props) => {
   const [data, setData] = useState([]);
 
-  const getMessages = () => {
-    axios({
-      method: 'GET',
-      url: 'http://192.168.43.186:3000/contact/2',
-    })
-      .then((res) => {
-        setData(res.data.body);
+  const getContacts = () => {
+    props.dispatch(getContact(props.auth.data.id))
+      .then(() => {
+        setData(props.contact.data);
+        console.log(props.contact.data);
       })
       .catch((err) => {
         console.log(err.response);
@@ -22,8 +21,7 @@ const MessageList = (props) => {
   };
 
   useEffect(() => {
-    getMessages();
-    console.log("ALL DATA:")
+    getContacts();
   }, []);
 
   return (
@@ -46,4 +44,9 @@ const MessageList = (props) => {
   );
 };
 
-export default MessageList;
+const mapStateToProps = state => ({
+  auth: state.auth,
+  contact: state.contact
+})
+
+export default connect(mapStateToProps)(ContactList);

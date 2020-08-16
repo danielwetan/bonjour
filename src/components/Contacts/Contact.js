@@ -5,7 +5,7 @@ import styles from './styles';
 import {Image, Button} from 'react-native-elements';
 // import {connect} from 'react-redux';
 
-const Message = (props) => {
+const Contact = (props) => {
   const img = 'http://192.168.43.186:3000/img/' + props.profile_img;
   return (
     <>
@@ -71,4 +71,4 @@ const Message = (props) => {
   );
 };
 
-export default Message;
+export default Contact;

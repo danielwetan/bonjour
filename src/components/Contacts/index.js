@@ -2,13 +2,13 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import Search from '../Public/Search';
-import Message from './Message';
-import MessageList from './MessageList';
+import Contact from './Contact';
+import ContactList from './ContactList';
 const Contacts = (props) => {
   return (
     <>
       <Search />
-      <MessageList nav={props.nav}/>
+      <ContactList nav={props.nav}/>
     </>
   );
 };
