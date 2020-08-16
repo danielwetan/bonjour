@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState, useEffect} from 'react';
-// import {View, Text} from 'react-native';
-import axios from 'axios';
+import {getMessage} from '../../redux/actions/chat';
+import {connect} from 'react-redux';
 import Message from './Message';
 
 const MessageList = (props) => {
@@ -11,12 +11,9 @@ const MessageList = (props) => {
   let nameParams = props.name
 
   const getMessages = () => {
-    axios({
-      method: 'GET',
-      url: 'http://192.168.43.186:3000/msg/2',
-    })
-      .then((res) => {
-        setData(res.data.body);
+    props.dispatch(getMessage(props.auth.data.id))
+      .then(() => {
+        setData(props.chat.data);
       })
       .catch((err) => {
         console.log(err.response);
@@ -51,4 +48,9 @@ const MessageList = (props) => {
   );
 };
 
-export default MessageList;
+const mapStateToProps = state => ({
+  chat: state.chat,
+  auth: state.auth
+})
+
+export default connect(mapStateToProps)(MessageList);

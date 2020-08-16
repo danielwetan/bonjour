@@ -5,24 +5,25 @@ const initialState = {
   isSuccess: false
 }
 
-const contact = (state = initialState, action) => {
+const message = (state = initialState, action) => {
   switch (action.type) {
-    // Get Contacts
-    case 'GET_CONTACT_PENDING':
+    // Get message
+    case 'GET_MESSAGE_PENDING':
       return {
         ...state,
         isLoading: true,
         isError: false,
         isSuccess: false
       }
-    case 'GET_CONTACT_REJECTED':
+    case 'GET_MESSAGE_REJECTED':
       return {
         ...state,
         isLoading: false,
         isError: true,
         isSuccess: false
       }
-    case 'GET_CONTACT_FULFILLED':
+    case 'GET_MESSAGE_FULFILLED':
+    console.log(action.payload.data);
       return {
         ...state,
         isLoading: false,
@@ -35,4 +36,4 @@ const contact = (state = initialState, action) => {
   }
 }
 
-export default contact;
+export default message;

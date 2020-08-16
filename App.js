@@ -14,7 +14,6 @@ import Profile from './src/screens/Profile';
 import Maps from './src/screens/Maps';
 // import Splash from './src/screens/Splash'
 import Login from './src/screens/Login';
-import Register from './src/screens/Register'
 import Conversation from './src/screens/Conversation';
 import ContactProfile from './src/screens/ContactProfile';
 
@@ -251,7 +250,6 @@ const App = ({navigation}) => {
         <PersistGate persistor={persistor}>
           <NavigationContainer>
             <Stack.Navigator>
-              <Stack.Screen name="Register" component={Register} options={{title: 'Bonjour', headerLeft: null}}/>
               <Stack.Screen name="Login" component={Login} options={{title: 'Bonjour', headerLeft: null}}/>
               <Stack.Screen name="Chats" component={ChatsTabs} options={{title: 'Bonjour', headerLeft: null}}/>
               <Stack.Screen name="ContactProfile" component={ContactProfile} options={{title: false}}/>
