@@ -12,7 +12,6 @@ const ContactList = (props) => {
     props.dispatch(getContact(props.auth.data.id))
       .then(() => {
         setData(props.contact.data);
-        // console.log(props.contact.data);
       })
       .catch((err) => {
         console.log(err.response);
@@ -38,7 +37,6 @@ const ContactList = (props) => {
           />
         );
       })}
-      {console.log(data)}
     </>
   );
 };

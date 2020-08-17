@@ -5,7 +5,6 @@ module.exports = {
     marginTop: 10,
   },
   profile: {
-    // alignItems: 'center',
   },
   name: {
     marginTop: 10,
@@ -22,7 +21,6 @@ module.exports = {
     fontSize: 16,
     marginTop: 10,
     fontFamily: 'Quicksand-Medium',
-    // marginBottom: 10,
   },
   history: {
     paddingnTop: 50,

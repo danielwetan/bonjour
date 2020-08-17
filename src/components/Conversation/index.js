@@ -29,9 +29,6 @@ class Conversation extends React.Component {
 
   postMessage = () => {
     this.props.dispatch(postConversation(this.props.receiver_id, this.props.sender_id, this.state.value))
-    .then(() => {
-      console.log('success!')
-    })
     .catch((err) => {
       console.log(err.Response)
     })
@@ -77,7 +74,6 @@ class Conversation extends React.Component {
           onChangeText={text => this.setState({value: text})}
           value={this.state.value}
           onSubmitEditing={() => {
-            console.log(this.state.value)
             this.setState({value: ''})
             this.postMessage()
           }}

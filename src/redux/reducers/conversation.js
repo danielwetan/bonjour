@@ -23,7 +23,6 @@ const conversation = (state = initialState, action) => {
         isSuccess: false
       }
     case 'GET_CONVERSATION_FULFILLED':
-    console.log(action.payload.data);
       return {
         ...state,
         isLoading: false,

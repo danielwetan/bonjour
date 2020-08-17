@@ -3,7 +3,6 @@ import React from 'react';
 import {View, Text, TouchableHighlight} from 'react-native';
 import styles from './styles';
 import {Image, Button} from 'react-native-elements';
-// import {connect} from 'react-redux';
 
 const Contact = (props) => {
   const img = 'http://192.168.43.186:3000/img/' + props.profile_img;
@@ -21,8 +20,6 @@ const Contact = (props) => {
               flexDirection: 'row',
               paddingTop: 5,
               paddingBottom: 5,
-              // borderTopColor: 'lightgray',
-              // borderTopWidth: 1,
             }}>
             <View
               style={{
@@ -31,7 +28,6 @@ const Contact = (props) => {
               }}>
               <Image
                 source={{uri: img}}
-                // source={img}
                 style={{
                   width: 70,
                   height: 70,

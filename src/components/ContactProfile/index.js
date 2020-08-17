@@ -3,7 +3,6 @@ import React, {useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
 import styles from './styles';
 import {Image, Button} from 'react-native-elements';
-// import img from '../../assets/images/harry-potter.jpg';
 
 const Profile = (props) => {
   const img = 'http://192.168.43.186:3000/img/' + props.profile_img;
@@ -25,11 +24,7 @@ const Profile = (props) => {
         </View>
       </View>
       </View>
-      // </View>
-    // </>
   );
 };
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 export default Profile;
-// <Button onPress={() => props.nav.navigate("Conversation", {name: props.name, image: img, sender_id: props.sender_id})} title="Chat"/>

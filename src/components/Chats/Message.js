@@ -3,7 +3,6 @@ import React from 'react';
 import {View, Text, TouchableHighlight} from 'react-native';
 import styles from './styles';
 import {Image, Button} from 'react-native-elements';
-// import img from '../../assets/images/2.jpg';
 
 const Message = (props) => {
   const img = 'http://192.168.43.186:3000/img/' + props.profile_img;
@@ -18,15 +17,12 @@ const Message = (props) => {
         <TouchableHighlight
           underlayColor={'lightgray'}
           activeOpacity={1}
-          // onPress={() => props.nav.naddvigate("Conversation", {name: props.sender_name, image: img, sender_id: props.sender_id})}>
           onPress={() => props.nav.navigate("Conversation", {sender_id:props.sender_id, receiver_id:props.receiver_id, name:props.sender_name, image: img})}>
           <View
             style={{
               flexDirection: 'row',
               paddingTop: 5,
               paddingBottom: 5,
-              // borderTopColor: 'lightgray',
-              // borderTopWidth: 1,
             }}>
             <View
               style={{
@@ -35,7 +31,6 @@ const Message = (props) => {
               }}>
               <Image
                 source={{uri: img}}
-                // source={img}
                 style={{
                   width: 60,
                   height: 60,
@@ -47,7 +42,6 @@ const Message = (props) => {
             <View
               style={{
                 marginRight: 100,
-                // marginTop: 10,
                 marginLeft: 20,
               }}>
               <Text

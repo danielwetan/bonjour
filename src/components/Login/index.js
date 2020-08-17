@@ -1,7 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {View, Text, Alert} from 'react-native';
-// import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input, Button} from 'react-native-elements';
 import styles from './styles';
 
@@ -33,11 +32,7 @@ const Login = (props) => {
     };
     props
       .dispatch(login(data))
-      // .then(() => (console.log(props.auth.isError)))
       .then(() => {
-        // setIsModalVisible(true);
-        // console.log('Login success!');
-        // console.log(data);
         props.nav.reset({
           index: 0,
           routes: [
@@ -76,7 +71,6 @@ const Login = (props) => {
         />
         <Button
           onPress={() => userLogin()}
-          // onPress={() => console.log('Login success')}
           title="Login"
           titleStyle={{fontFamily: 'Quicksand-Bold'}}
         />

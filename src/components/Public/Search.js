@@ -20,10 +20,6 @@ const Search = () => {
           inputContainerStyle={style.searchBarInputContainer}
           inputStyle={style.searchBarInput}
           searchIcon={style.searchIcon}
-          // onSubmitEditing={() =>
-          //   props.nav.navigate('Collection', {search: search})
-          //   submit()
-          // }
           clearIcon={false}
         />
       </View>
