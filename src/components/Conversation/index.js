@@ -29,15 +29,6 @@ class Conversation extends React.Component {
   }
 
   postMessage = () => {
-    // axios({
-    //   method: 'POST',
-    //   url: 'http://192.168.43.186:3000/msg',
-    //   data: {
-    //     sender_id: this.props.receiver_id,
-    //     receiver_id: this.props.sender_id,
-    //     message: this.state.value
-    //   }
-    // })
     this.props.dispatch(postConversation(this.props.receiver_id, this.props.sender_id, this.state.value))
     .then(() => {
       console.log('success!')
@@ -54,24 +45,15 @@ class Conversation extends React.Component {
         messages: [...this.state.messages, msg]
       });
     });
-    axios({
-      method: 'GET',
-      url: `http://192.168.43.186:3000/msg?sender=${this.props.sender_id}&receiver=${this.props.receiver_id}`
-    })
-    .then((res) => {
+    this.props.dispatch(getConversation(this.props.sender_id, this.props.receiver_id))
+    .then(() => {
       this.setState(
-        {messages: res.data.body}
+        {messages: this.props.conversation.data}
       )
     })
-    // this.props.dispatch(getConversation(this.props.sender_id, this.props.receiver_id))
-    // .then(() => {
-    //   this.setState(
-    //     {messages: this.props.conversation.data}
-    //   )
-    // })
-    // .catch((err) => {
-    //   console.log(err)
-    // });
+    .catch((err) => {
+      console.log(err)
+    });
   }
   componentWillUnmount() {
     this.socket.removeAllListeners();
