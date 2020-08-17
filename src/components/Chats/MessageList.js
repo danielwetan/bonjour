@@ -11,7 +11,8 @@ const MessageList = (props) => {
   let nameParams = props.name
 
   const getMessages = () => {
-    props.dispatch(getMessage(props.auth.data.id))
+    // props.dispatch(getMessage(props.auth.data.id))
+    props.dispatch(getMessage(2))
       .then(() => {
         setData(props.chat.data);
       })

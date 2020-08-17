@@ -2,7 +2,7 @@
 import React from 'react';
 import {View, Text, TouchableHighlight} from 'react-native';
 import styles from './styles';
-import {Image, Button} from 'react-native-elements';
+import {Image, Button, Icon} from 'react-native-elements';
 
 const Message = (props) => {
   const img = 'http://192.168.43.186:3000/img/' + props.profile_img;
@@ -10,9 +10,11 @@ const Message = (props) => {
     <>
       <View
         style={{
-          marginTop: 10,
+          marginTop: 5,
+          // marginBottom: 5,
           marginLeft: 20,
           marginRight: 20,
+          paddingRight: 80,
         }}>
         <TouchableHighlight
           underlayColor={'lightgray'}
@@ -21,8 +23,8 @@ const Message = (props) => {
           <View
             style={{
               flexDirection: 'row',
-              paddingTop: 5,
-              paddingBottom: 5,
+              // paddingTop: 5,
+              // paddingBottom: 5,
             }}>
             <View
               style={{
@@ -39,11 +41,21 @@ const Message = (props) => {
                 }}
               />
             </View>
+
+
+
             <View
               style={{
-                marginRight: 100,
+                marginRight: 80,
                 marginLeft: 20,
+                paddingTop: 8,
+                paddingBottom: 18,
+                borderBottomColor: 'lightgray',
+                borderBottomWidth: 1,
+                width: '100%'
               }}>
+
+              <View style={{flexDirection: 'row'}}>
               <Text
                 style={{
                   fontSize: 18,
@@ -52,6 +64,19 @@ const Message = (props) => {
                 }}>
                 {props.sender_name}
               </Text>
+
+              <Text
+                style={{
+                  fontSize: 12,
+                  fontFamily: 'Quicksand-Medium',
+                  color: 'gray',
+                  marginLeft: 'auto'
+                }}>
+                Yesterday
+              </Text>
+              </View>
+
+              <View style={{flexDirection: 'row'}}>
               <Text
                 style={{
                   paddingTop: 3,
@@ -61,7 +86,19 @@ const Message = (props) => {
                 }}>
                 {props.message}
               </Text>
+
+              <Text style={{marginLeft: 'auto'}}>
+              <Icon
+                name='chevron-right'
+                type='font-awesome'
+                color='lightgray'
+              />
+              </Text>
+              </View>
+
             </View>
+
+
           </View>
         </TouchableHighlight>
       </View>
