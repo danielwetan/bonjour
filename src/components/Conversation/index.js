@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, TextInput, ScrollView, FlatList, Button} from 'react-native';
-import axios from 'axios';
 import styles from './styles';
 import io from 'socket.io-client';
 import {getConversation, postConversation} from '../../redux/actions/conversation';

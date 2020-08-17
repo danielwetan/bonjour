@@ -5,8 +5,8 @@ import { Button } from 'react-native-elements';
 // import img from '../../assets/images/harry-potter.jpg';
 import { connect } from 'react-redux';
 import { logout } from '../../redux/actions/auth';
+import {updateProfile} from '../../redux/actions/user'
 import ImagePicker from 'react-native-image-picker';
-import axios from 'axios';
 
 const Profile = (props) => {
   const [image, setImage] = useState(null);
@@ -18,16 +18,9 @@ const Profile = (props) => {
       type: image.type,
       name: image.fileName,
     })
-    axios({
-      method: 'PUT',
-      url: `http://192.168.43.186:3000/u/${props.auth.data.id}`,
-      data: formData,
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      }
-    })
-    .then((res) => {
-      console.log(res)
+    props.updateProfile(props.auth.data.id, formData)
+    .then(() => {
+      console.log('Success');
     })
     .catch((err) => {
       console.log(err);
@@ -110,6 +103,6 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-const mapDispatchToProps = { logout };
+const mapDispatchToProps = { logout, updateProfile };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
