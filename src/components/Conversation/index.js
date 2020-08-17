@@ -3,6 +3,8 @@ import {View, Text, TextInput, ScrollView, FlatList, Button} from 'react-native'
 import axios from 'axios';
 import styles from './styles';
 import io from 'socket.io-client';
+import {getConversation, postConversation} from '../../redux/actions/conversation';
+import {connect} from 'react-redux';
 
 class Conversation extends React.Component {
   constructor(props) {
@@ -27,15 +29,16 @@ class Conversation extends React.Component {
   }
 
   postMessage = () => {
-    axios({
-      method: 'POST',
-      url: 'http://192.168.43.186:3000/msg',
-      data: {
-        sender_id: this.props.receiver_id,
-        receiver_id: this.props.sender_id,
-        message: this.state.value
-      }
-    })
+    // axios({
+    //   method: 'POST',
+    //   url: 'http://192.168.43.186:3000/msg',
+    //   data: {
+    //     sender_id: this.props.receiver_id,
+    //     receiver_id: this.props.sender_id,
+    //     message: this.state.value
+    //   }
+    // })
+    this.props.dispatch(postConversation(this.props.receiver_id, this.props.sender_id, this.state.value))
     .then(() => {
       console.log('success!')
     })
@@ -60,9 +63,15 @@ class Conversation extends React.Component {
         {messages: res.data.body}
       )
     })
-    .catch((err) => {
-      console.log(err)
-    });
+    // this.props.dispatch(getConversation(this.props.sender_id, this.props.receiver_id))
+    // .then(() => {
+    //   this.setState(
+    //     {messages: this.props.conversation.data}
+    //   )
+    // })
+    // .catch((err) => {
+    //   console.log(err)
+    // });
   }
   componentWillUnmount() {
     this.socket.removeAllListeners();
@@ -100,4 +109,8 @@ class Conversation extends React.Component {
 }
 }
 
-export default Conversation
+const mapStateToProps = state => ({
+  conversation: state.conversation
+})
+
+export default connect(mapStateToProps)(Conversation)
