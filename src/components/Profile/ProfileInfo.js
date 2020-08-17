@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, Platform, PermissionsAndroid} from 'react-native';
 import styles from './styles';
-import { Button } from 'react-native-elements';
+import { Button, Icon } from 'react-native-elements';
 // import img from '../../assets/images/harry-potter.jpg';
 import { connect } from 'react-redux';
 import { logout } from '../../redux/actions/auth';
@@ -66,29 +66,65 @@ const Profile = (props) => {
     <>
       <View
         style={{
-          alignItems: 'center',
           marginTop: 10,
         }}>
 
+        <View style={{
+          alignItems: 'center',
+        }}>
         {image ? (
           <TouchableOpacity onPress={() => handleChoosePhoto()}>
-            <Image source={{ uri: image.uri }} style={{ width: 300, height: 300 }} />
+            <Image source={{ uri: image.uri }} style={{ width: 200, height: 200 }} />
           </TouchableOpacity>
         ) : (
             <TouchableOpacity onPress={() => handleChoosePhoto()}>
-              <Image source={{ uri: img }} style={{ width: 300, height: 300 }} />
+              <Image source={{ uri: img }} style={{ width: 200, height: 200 }} />
             </TouchableOpacity>
           )}
+        </View>
 
-        <Text style={styles.name}>{props.auth.data.name}</Text>
-        <Text style={styles.email}>{props.auth.data.about}</Text>
-        <Text style={styles.email}>{props.auth.data.email}</Text>
-        <Button
-          buttonStyle={{ backgroundColor: '#004380', width: 100, marginTop: 10 }}
-          titleStyle={{ fontFamily: 'Quicksand-Bold', fontSize: 16 }}
-          title="Logout"
-          onPress={() => logout()}
-        />
+        <View style={{flexDirection: 'row'}}>
+          <Icon
+            name='user'
+            type='font-awesome'
+            color='gray'
+            style={{marginTop: 32}}
+          />
+          <View style={{flexDirection: 'column'}}>
+            <Text style={styles.tag}>Name</Text>
+            <Text style={styles.name}>Daniel Saputra</Text>
+          </View>
+        </View>
+
+        <View style={{flexDirection: 'row'}}>
+          <Icon
+            name='info-circle'
+            type='font-awesome'
+            color='gray'
+            style={{marginTop: 32}}
+          />
+          <View style={{flexDirection: 'column'}}>
+          <Text style={styles.tag}>About</Text>
+          <Text style={styles.about}>Je parle français</Text>
+          </View>
+        </View>
+
+        <View style={{flexDirection: 'row'}}>
+          <Icon
+            name='envelope'
+            type='font-awesome'
+            color='gray'
+            style={{marginTop: 32}}
+          />
+          <View style={{flexDirection: 'column'}}>
+          <Text style={styles.tag}>Email</Text>
+          <Text style={styles.email}>{props.auth.data.email}</Text>
+          </View>
+        </View>
+
+
+
+
       </View>
     </>
   );
@@ -101,3 +137,13 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = { logout, updateProfile };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+
+// Logout button
+// <Button
+//   buttonStyle={{ backgroundColor: '#004380', width: 100, marginTop: 10 }}
+//   titleStyle={{ fontFamily: 'Quicksand-Bold', fontSize: 16 }}
+//   title="Logout"
+//   onPress={() => logout()}
+// />
+
+//<Text style={styles.about}>{props.auth.data.about}</Text>

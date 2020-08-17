@@ -1,28 +1,32 @@
 module.exports = {
   container: {
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: 50,
+    marginRight: 50,
     marginTop: 10,
-  },
-  username: {
-    marginTop: 10,
-    fontSize: 16,
-    color: 'gray',
-    fontFamily: 'Quicksand-Bold',
   },
   name: {
-    fontSize: 20,
-    fontFamily: 'Quicksand-Bold',
+    fontSize: 18,
+    fontFamily: 'Quicksand-SemiBold',
     color: '#373D3F',
+    marginLeft: 20
+  },
+  about: {
+    fontSize: 18,
+    fontFamily: 'Quicksand-SemiBold',
+    color: '#373D3F',
+    marginLeft: 20
   },
   email: {
-    fontSize: 16,
-    marginTop: 10,
-    fontFamily: 'Quicksand-Medium',
-  },
-  history: {
-    paddingnTop: 50,
     fontSize: 18,
-    fontFamily: 'Quicksand-Bold',
+    fontFamily: 'Quicksand-SemiBold',
+    color: '#373D3F',
+    marginLeft: 20,
   },
+  tag: {
+    fontSize: 15,
+    fontFamily: 'Quicksand-SemiBold',
+    color: 'gray',
+    marginTop: 20,
+    marginLeft: 20,
+  }
 };

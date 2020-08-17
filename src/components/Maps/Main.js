@@ -14,8 +14,8 @@ import {
 import MapView from "react-native-maps";
 
 const Images = [
-  { uri: "http://192.168.43.186:3000/img/9.jpg" },
   { uri: "http://192.168.43.186:3000/img/11.jpg" },
+  { uri: "http://192.168.43.186:3000/img/9.jpg" },
   { uri: "http://192.168.43.186:3000/img/13.jpg" },
 ]
 
