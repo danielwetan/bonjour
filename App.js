@@ -137,9 +137,6 @@ const ChatsTabs = ({navigation}) => {
         },
         style: {
           height: 75,
-          borderTopLeftRadius: 45,
-          borderTopRightRadius: 45,
-
         },
         tabStyle: {
           marginTop: 15,

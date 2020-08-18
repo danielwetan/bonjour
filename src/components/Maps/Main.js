@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
   cardtitle: {
     fontSize: 18,
     marginTop: 5,
-    fontFamily: 'Quicksand-Bold',
+    fontFamily: 'Quicksand-SemiBold',
     textAlign: 'center',
   },
   cardDescription: {

@@ -10,7 +10,7 @@ module.exports = {
     zIndex: 2,
   },
   msg: {
-    fontFamily: 'Quicksand-SemiBold',
+    fontFamily: 'Quicksand-Medium',
     fontSize: 15,
     marginLeft: 15,
     marginRight: 15,
@@ -24,7 +24,7 @@ module.exports = {
     marginTop: 10,
   },
   msg2: {
-    fontFamily: 'Quicksand-SemiBold',
+    fontFamily: 'Quicksand-Medium',
     fontSize: 15,
     marginLeft: 15,
     marginRight: 15,
