@@ -11,7 +11,8 @@
 * [Prerequisites](https://github.com/danielwetan/bonjour#prerequisites)
 * [Installation](https://github.com/danielwetan/bonjour#installation)
 * [Features](https://github.com/danielwetan/bonjour#features)
-* [Built wtih](https://github.com/danielwetan/bonjour#features)
+* [Built wtih](https://github.com/danielwetan/bonjour#built-with)
+* [Author](https://github.com/danielwetan/bonjour#screenshots)
 * [Author](https://github.com/danielwetan/bonjour#author)
 * [License](https://github.com/danielwetan/bonjour#license)
 
@@ -30,7 +31,6 @@
     `npm start`
 4. Run android:
     `npm run android`
- 
 
 ## Features
 - [x] Realtime chat
@@ -42,6 +42,29 @@
 ## Built with
 - [React Native](https://reactnative.dev/) - Mobile app framework
 - [JWT](https://jwt.io/) - Login/Register authentication
+
+## Screenshots
+<img 
+src="https://github.com/danielwetan/bonjour/blob/master/screenshots/1.png?raw=true"
+  alt="Bonjour"
+  style="float: left;"
+  width="220"/> <img 
+src="https://github.com/danielwetan/bonjour/blob/master/screenshots/2.png"
+alt="Bonjour"
+style="float: left;"
+width="220"
+/> <img 
+src="https://github.com/danielwetan/bonjour/blob/master/screenshots/3.png"
+alt="Bonjour"
+style="float: left;"
+width="220"
+/>
+<img 
+src="https://github.com/danielwetan/bonjour/blob/master/screenshots/4.png"
+alt="Bonjour"
+style="float: left;"
+width="220"
+/>
 
 ## Author
 - [Daniel Saputra](https://www.linkedin.com/in/danielwetan/)
