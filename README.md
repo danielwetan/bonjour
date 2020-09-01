@@ -1,7 +1,10 @@
-`Bonjour` is a realtime chat application based on React Native.
+![](https://i.imgur.com/Bp7sNtJ.png)
+
+`Bonjour` is a realtime chat application based on NodeJs/Go as backend and React Native for mobile.
 
 **Parts of code:**
-* [Backend](https://github.com/danielwetan/bonjour-backend)
+* [Backend (NodeJs)](https://github.com/danielwetan/bonjour-backend)
+* [Backend (Go)](https://github.com/danielwetan/bonjour-go)
 * [Web](https://github.com/danielwetan/bonjour-web)
 * [Mobile](https://github.com/danielwetan/bonjour) (You're here)
 
