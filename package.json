@@ -18,7 +18,7 @@
     "@react-navigation/drawer": "^5.8.5",
     "@react-navigation/native": "^5.7.2",
     "@react-navigation/stack": "^5.8.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-plugin-dotenv-import": "^2.1.0",
     "react": "16.13.1",
     "react-native": "0.63.2",
